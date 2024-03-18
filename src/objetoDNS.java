@@ -1,7 +1,9 @@
 import java.io.Serializable;
 
 public class objetoDNS implements Serializable {
+//    https://docs.oracle.com/javase/8/docs/api/java/io/Serializable.html
 
+//    Variables de la clase
     private String host;
     private String dns;
 
@@ -10,7 +12,6 @@ public class objetoDNS implements Serializable {
         this.host = host;
         this.dns = dns;
     }
-
     public objetoDNS() {}
 
 // Métodos get

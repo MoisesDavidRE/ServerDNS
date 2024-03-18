@@ -6,11 +6,16 @@ import java.rmi.server.UnicastRemoteObject;
 import java.util.Scanner;
 
 public class Cliente extends UnicastRemoteObject implements Escuchador  {
+
+//    Instancias y variables de la clase
     private static InterfazServidor servidor = null;
     Scanner consola = new Scanner(System.in);
     String lectura;
+
+//    Constructor
     public Cliente () throws RemoteException{}
 
+//    Sobreescritura del método creado en la interfaz Escuchador
     @Override
     public void realizarTrabajo () throws RemoteException {
         while (true) {
@@ -19,6 +24,7 @@ public class Cliente extends UnicastRemoteObject implements Escuchador  {
         }
     }
 
+//    Método principal
     public static void main(String[] args) {
         try {
             Registry registro = LocateRegistry.getRegistry("127.0.0.1", 4444);

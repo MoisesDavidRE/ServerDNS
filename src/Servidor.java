@@ -5,9 +5,13 @@ import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 
 public class Servidor extends UnicastRemoteObject implements InterfazServidor{
-    // Creación de la matriz de objetos
+    // Matriz de objetos
     static objetoDNS [] matriz = new objetoDNS[10];
+
+//    Constructor vacío
     public Servidor () throws RemoteException {}
+
+//    Sobreescritura de métodos de la InterfazServidor
     @Override
     public void ejecutarAsincronamente (Escuchador cliente) throws RemoteException {
         cliente.realizarTrabajo();
@@ -25,7 +29,7 @@ public class Servidor extends UnicastRemoteObject implements InterfazServidor{
     }
 
     public static void main(String[] drg) {
-// Asignación de objetos dentro de la matriz
+//      Asignación de objetos dentro de la matriz
         matriz[0] = new objetoDNS("192.168.5.34","Google.com");
         matriz[1] = new objetoDNS("192.168.6.35","Youtube.com");
         matriz[2] = new objetoDNS("192.168.7.36","Facebook.com");
@@ -36,8 +40,8 @@ public class Servidor extends UnicastRemoteObject implements InterfazServidor{
         matriz[7] = new objetoDNS("192.168.12.41","Wikipedia.com");
         matriz[8] = new objetoDNS("192.168.13.42","dell.com");
         matriz[9] = new objetoDNS("192.168.14.43","intel.com");
-//        El método principal solo se utiliza para
-//        Registrar el objeto remoto en el registro
+
+//        Registrar el objeto remoto
         try {
             InterfazServidor servidor = new Servidor();
             System.getProperty(
@@ -48,5 +52,6 @@ public class Servidor extends UnicastRemoteObject implements InterfazServidor{
         } catch (RemoteException | AlreadyBoundException e) {
             throw new RuntimeException(e);
         }
+
     }
 }
