@@ -15,7 +15,7 @@ public class Cliente extends UnicastRemoteObject implements Escuchador  {
     public void realizarTrabajo () throws RemoteException {
         while (true) {
             lectura = consola.nextLine();
-            System.out.println(servidor.getDirIP(lectura));
+            System.out.println(servidor.getDirIP(lectura).getHost());
         }
     }
 

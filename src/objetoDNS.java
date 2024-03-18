@@ -1,4 +1,6 @@
-public class objetoDNS {
+import java.io.Serializable;
+
+public class objetoDNS implements Serializable {
 
     private String host;
     private String dns;
