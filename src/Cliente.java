@@ -20,7 +20,12 @@ public class Cliente extends UnicastRemoteObject implements Escuchador  {
     public void realizarTrabajo () throws RemoteException {
         while (true) {
             lectura = consola.nextLine();
-            System.out.println(servidor.getDirIP(lectura).getHost());
+            String Host = servidor.getDirIP(lectura).getHost();
+            if(Host != null) {
+                System.out.println(Host);
+            }else {
+                System.out.println("El nombre de dominio ingresado no existe");
+            }
         }
     }
 
